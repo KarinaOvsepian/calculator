@@ -10,7 +10,7 @@ namespace Calculator
             Console.Write("Enter first number: ");
             double num1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter operator (+, -, *, /): ");
+            Console.Write("Enter operator (+, -, *, /, ^): ");
             char op = Console.ReadLine()[0];
 
             Console.Write("Enter second number: ");
@@ -29,6 +29,7 @@ namespace Calculator
                 case '-': return Subtract(a, b);
                 case '*': return Multiply(a, b);
                 case '/': return Divide(a, b);
+                case '^': return Power(a, b);
                 default:
                     Console.WriteLine("Unknown operation!");
                     return 0;
@@ -46,6 +47,10 @@ namespace Calculator
                 return 0;
             }
             return a / b;
+        }
+        static double Power(double a, double b)
+        {
+            return Math.Pow(a, b);
         }
     }
 }
