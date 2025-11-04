@@ -47,10 +47,18 @@ namespace Calculator
                 return 0;
             }
             return a / b;
-        }
-        static double Power(double a, double b)
+        } static double Power(double a, double b)
         {
-            return Math.Pow(a, b);
+            // якщо основа від’ємна і степінь дробовий → помилка
+            if (a < 0 && b % 1 != 0)
+            {
+                Console.WriteLine("Error: Cannot raise a negative number to a fractional power!");
+                return double.NaN;
+            }
+
+            double result = Math.Pow(a, b);
+            Console.WriteLine($"{a} raised to the power of {b} is {result}");
+            return result;
         }
     }
 }
