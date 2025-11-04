@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Calculator
 {
@@ -20,7 +20,6 @@ namespace Calculator
             Console.WriteLine($"Result: {result}");
         }
 
-        // 🔹 Ось нова функція — основна логіка калькулятора
         static double Calculate(double a, double b, char operation)
         {
             switch (operation)
@@ -35,17 +34,29 @@ namespace Calculator
             }
         }
 
-        static double Add(double a, double b) => a + b;
-        static double Subtract(double a, double b) => a - b;
-        static double Multiply(double a, double b) => a * b;
-        static double Divide(double a, double b)
+        public static double Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    public static double Subtract(double a, double b)
+    {
+        return a - b;
+    }
+
+    public static double Multiply(double a, double b)
+    {
+        return a * b;
+    }
+
+    public static double Divide(double a, double b)
+    {
+        if (b == 0)
         {
-            if (b == 0)
-            {
-                Console.WriteLine("Error: Division by zero!");
-                return 0;
-            }
-            return a / b;
+            throw new System.DivideByZeroException("Cannot divide by zero.");
         }
+        return a / b;
+    }
     }
 }
+
