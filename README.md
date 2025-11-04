@@ -1,1 +1,1 @@
-# calculator
+This is a project created for a console calculator.
