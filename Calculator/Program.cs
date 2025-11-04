@@ -1,35 +1,62 @@
-﻿namespace Calculator
+using System;
+
+namespace Calculator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-        }
-    }
+            Console.WriteLine("=== Simple Calculator ===");
+            Console.Write("Enter first number: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
 
-public static double Addition(double a, double b)
+            Console.Write("Enter operator (+, -, *, /): ");
+            char op = Console.ReadLine()[0];
+
+            Console.Write("Enter second number: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+
+            double result = Calculate(num1, num2, op);
+            Console.WriteLine($"Result: {result}");
+        }
+
+        static double Calculate(double a, double b, char operation)
+        {
+            switch (operation)
+            {
+                case '+': return Add(a, b);
+                case '-': return Subtract(a, b);
+                case '*': return Multiply(a, b);
+                case '/': return Divide(a, b);
+                default:
+                    Console.WriteLine("Unknown operation!");
+                    return 0;
+            }
+        }
+
+        public static double Add(double a, double b)
     {
         return a + b;
     }
 
-    public static double Subtraction(double a, double b)
+    public static double Subtract(double a, double b)
     {
         return a - b;
     }
 
-    public static double Multiplication(double a, double b)
+    public static double Multiply(double a, double b)
     {
         return a * b;
     }
 
-    public static double Division(double a, double b)
+    public static double Divide(double a, double b)
     {
-        // Перевірка на ділення на нуль
         if (b == 0)
         {
             throw new System.DivideByZeroException("Cannot divide by zero.");
         }
         return a / b;
     }
+    }
 }
+
