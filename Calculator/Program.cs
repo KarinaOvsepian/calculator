@@ -10,7 +10,7 @@ namespace Calculator
             Console.Write("Enter first number: ");
             double num1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter operator (+, -, *, /, ^): ");
+            Console.Write("Enter operator (+, -, *, /, |): ");
             char op = Console.ReadLine()[0];
 
             Console.Write("Enter second number: ");
@@ -58,6 +58,13 @@ namespace Calculator
 
             double result = Math.Pow(a, b);
             Console.WriteLine($"{a} raised to the power of {b} is {result}");
+            return result;
+        }
+        
+        static double AbsoluteValue(double a)
+        {
+            double result = Math.Abs(a);
+            Console.WriteLine($"|{a}| = {result}");
             return result;
         }
     }
