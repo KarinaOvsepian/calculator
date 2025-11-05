@@ -49,6 +49,14 @@ namespace Calculator
         {
             return a * b;
         }
+public static double SquareRoot(double a)
+{
+    if (a < 0)
+    {
+        throw new System.ArgumentException("Cannot calculate square root of a negative number.");
+    }
+    return System.Math.Sqrt(a);
+}
 
         public static double Divide(double a, double b)
         {
